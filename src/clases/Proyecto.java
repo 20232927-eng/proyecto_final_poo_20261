@@ -8,71 +8,112 @@ package clases;
  *
  * @author L35108
  */
+
+
 public class Proyecto {
+
+    // Atributos:
     private String codigo;
     private String nombre;
-    private String ubicacion;
-    private double presupuesto;
+    private String direccion;
+    private String distrito;
+    private int numeroPisos;
+    private String fechaInicio;
+    private String fechaEntrega;
     private String estado;
 
-    //constructor
-    public Proyecto(String codigo, String nombre, String ubicacion, double presupuesto, String estado) {
+
+    // Constructor:
+    public Proyecto(String codigo, String nombre, String direccion,
+            String distrito, int numeroPisos,
+            String fechaInicio, String fechaEntrega,
+            String estado) {
+
         this.codigo = codigo;
         this.nombre = nombre;
-        this.ubicacion = ubicacion;
-        this.presupuesto = presupuesto;
+        this.direccion = direccion;
+        this.distrito = distrito;
+        this.numeroPisos = numeroPisos;
+        this.fechaInicio = fechaInicio;
+        this.fechaEntrega = fechaEntrega;
         this.estado = estado;
     }
-    
-    //getters 
+
+
+    // Getters y Setters
 
     public String getCodigo() {
         return codigo;
     }
 
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+
     public String getNombre() {
         return nombre;
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
-    }
-
-    public double getPresupuesto() {
-        return presupuesto;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-    
-    // setters
-
-    public void setCodigo(String idProyect) {
-        this.codigo = codigo;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setPresupuesto(double presupuesto) {
-        this.presupuesto = presupuesto;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+
+    public String getDistrito() {
+        return distrito;
+    }
+
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
+    }
+
+
+    public int getNumeroPisos() {
+        return numeroPisos;
+    }
+
+    public void setNumeroPisos(int numeroPisos) {
+        this.numeroPisos = numeroPisos;
+    }
+
+
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+
+    public String getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(String fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+
+    public String getEstado() {
+        return estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    @Override
-    public String toString() {
-         return codigo + " - " + nombre + " - "+ estado;
-    }
-    
+}
     
     
     
