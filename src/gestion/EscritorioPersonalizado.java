@@ -19,7 +19,7 @@ public class EscritorioPersonalizado  extends  JDesktopPane{
     
     public EscritorioPersonalizado(){
         try {
-            img = ImageIO.read(getClass().getResourceAsStream("/imagenes/fondoPrincipal.jpg"));
+            img = ImageIO.read(getClass().getResourceAsStream("/imagenes/fondoBiblioteca.jpg"));
         } catch (Exception e) {
             e.printStackTrace();
         }

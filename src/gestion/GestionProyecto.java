@@ -4,82 +4,26 @@
  */
 package gestion;
 import clases.Proyecto;
-
-
 /**
  *
  * @author L35108
  */
 public class GestionProyecto {
-    
+    //Atributos
     private Proyecto[] proyectos;
     private int totalProyectos;
-
-    //Constructor:
-
+    //Constructor
     public GestionProyecto() {
-        proyectos = new Proyecto[50];
+        proyectos = new Proyecto[30];
         totalProyectos = 0;
-        registrarProyecto(new Proyecto(
+<<<<<<< HEAD
+        registrarProyecto(new Proyecto("P001","Residencial Los Olivos","Av. Primavera 250","Surco",12,"10/01/2025","20/12/2026","En construcción"));
 
-                "P001",
+        registrarProyecto(new Proyecto( "P002","Edificio Vista Mar","Av. La Marina 500","San Miguel",15,"15/03/2025","30/11/2027","En planos" ));
 
-                "Residencial Los Olivos",
-
-                "Av. Primavera 250",
-
-                "Surco",
-
-                12,
-
-                "10/01/2025",
-
-                "20/12/2026",
-
-                "En construcción"
-
-        ));
-
-        registrarProyecto(new Proyecto(
-
-                "P002",
-
-                "Edificio Vista Mar",
-
-                "Av. La Marina 500",
-
-                "San Miguel",
-
-                15,
-
-                "15/03/2025",
-
-                "30/11/2027",
-
-                "En planos"
-
-        ));
-
-        registrarProyecto(new Proyecto(
-
-                "P003",
-
-                "Condominio Central",
-
-                "Av. Arequipa 800",
-
-                "Miraflores",
-
-                20,
-
-                "01/06/2024",
-
-                "15/12/2026",
-                
-                 "Terminado",
-
-        ));
-    }
+        registrarProyecto(new Proyecto( "P003","Condominio Central","Av. Arequipa 800","Miraflores",20,"01/06/2024","15/12/2026","Terminado"));
+        
+        }
             
             
             
@@ -88,164 +32,69 @@ public class GestionProyecto {
 
     public Proyecto buscarPorCodigo(String codigo) {
 
+=======
+    }
+    //Busca por nombre de proyecto
+    public Proyecto buscarPorNombre(String nombreProyecto) {
+>>>>>>> e1670947cc1ef8e6459de59a1784d9f439bcfbef
         for (int i = 0; i < totalProyectos; i++) {
-
-            if (proyectos[i].getCodigo().equalsIgnoreCase(codigo)) {
-
+            if (proyectos[i].getNombreProyecto().equalsIgnoreCase(nombreProyecto)) {
                 return proyectos[i];
-
             }
-
         }
-
         return null;
-
     }
-
-    
-
-    //Registrar proyecto
-
+    //Registra proyecto
     public boolean registrarProyecto(Proyecto proyecto) {
-
-        //Verifica si el arreglo está lleno
-
         if (totalProyectos == proyectos.length) {
-
-            imprimir("No hay espacio para más proyectos.");
-
-            return false;
-
+            imprimir("No hay espacio para mas proyectos.");
+            return false; 
         }
-
-        //Evita proyectos duplicados
-
-        if (buscarPorCodigo(proyecto.getCodigo()) != null) {
-
-            imprimir("El proyecto ya existe.");
-
-            return false;
-
+        if (buscarPorNombre(proyecto.getNombreProyecto()) != null) {
+            imprimir("Ya existe un proyecto con ese nombre.");
+            return false; 
         }
-
-        //Registro
-
         proyectos[totalProyectos] = proyecto;
-
         totalProyectos++;
-
-        imprimir("Proyecto agregado con éxito: "
-
-                + proyecto.getNombre());
-
+        imprimir("Proyecto agregado: " + proyecto.getNombreProyecto());
         return true;
-
     }
-
-    
-
-    //Modificar proyecto
-
+    //Modifica proyecto 
     public boolean modificarProyecto(Proyecto proyecto) {
-
         for (int i = 0; i < totalProyectos; i++) {
-
-            if (proyectos[i].getCodigo()
-
-                    .equalsIgnoreCase(proyecto.getCodigo())) {
-
-                proyectos[i].setNombre(proyecto.getNombre());
-
+            if (proyectos[i].getNombreProyecto().equalsIgnoreCase(proyecto.getNombreProyecto())) {
                 proyectos[i].setDireccion(proyecto.getDireccion());
-
                 proyectos[i].setDistrito(proyecto.getDistrito());
-
                 proyectos[i].setNumeroPisos(proyecto.getNumeroPisos());
-
-                proyectos[i].setFechaInicio(proyecto.getFechaInicio());
-
-                proyectos[i].setFechaEntrega(proyecto.getFechaEntrega());
-
+                proyectos[i].setFechaInicioObra(proyecto.getFechaInicioObra());
+                proyectos[i].setFechaEstimadaEntrega(proyecto.getFechaEstimadaEntrega());
                 proyectos[i].setEstado(proyecto.getEstado());
-
-                imprimir("Proyecto modificado correctamente.");
-
                 return true;
-
             }
-
         }
-
         return false;
-
     }
-
-    //------------------------------------------------------------
-
-    //Eliminar proyecto
-
-    public boolean eliminarProyecto(String codigo) {
-
+    //Elimina proyecto por nombre
+    public boolean eliminarProyecto(String nombreProyecto) {
         for (int i = 0; i < totalProyectos; i++) {
-
-            if (proyectos[i].getCodigo()
-
-                    .equalsIgnoreCase(codigo)) {
-
-                //Mover elementos a la izquierda
-
+            if (proyectos[i].getNombreProyecto().equalsIgnoreCase(nombreProyecto)) {
                 for (int j = i; j < totalProyectos - 1; j++) {
-
                     proyectos[j] = proyectos[j + 1];
-
                 }
-
-                //Limpia última posición
-
                 proyectos[totalProyectos - 1] = null;
-
                 totalProyectos--;
-
-                imprimir("Proyecto eliminado con éxito.");
-
                 return true;
-
             }
-
         }
-
         return false;
-
     }
-
-    //------------------------------------------------------------
-
-    //Obtener arreglo actual
-
     public Proyecto[] obtenerProyectos() {
-
         return proyectos;
-
     }
-
-    //------------------------------------------------------------
-
-    //Obtener cantidad de proyectos
-
     public int obtenerTotalProyectos() {
-
         return totalProyectos;
-
     }
-
-    //------------------------------------------------------------
-
-    //Imprimir
-
     public static void imprimir(String cadena) {
-
         System.out.println(cadena);
-
-    }
-
+    }    
 }
