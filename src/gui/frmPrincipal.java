@@ -4,7 +4,7 @@
  */
 package gui;
 
-import MAIN.EscritorioPersonalizado;
+import gestion.EscritorioPersonalizado;
 import clases.Usuario;
 import gestion.GestionCliente;
 import gestion.GestionEmpleado;

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package MAIN;
+package gestion;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -19,7 +19,7 @@ public class EscritorioPersonalizado  extends  JDesktopPane{
     
     public EscritorioPersonalizado(){
         try {
-            img = ImageIO.read(getClass().getResourceAsStream("/imagenes/fondoBiblioteca.jpg"));
+            img = ImageIO.read(getClass().getResourceAsStream("/imagenes/fondoPrincipal.jpg"));
         } catch (Exception e) {
             e.printStackTrace();
         }
