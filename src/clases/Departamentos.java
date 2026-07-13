@@ -11,61 +11,145 @@ package clases;
 public class  Departamentos{
     
     private String codigo;
-    private int numero;
-    private double precio;
+    private int piso;
+    private String numeroDepartamento;
+    private double area;
+    private int dormitorios;
+    private int banos;
+    private String tipo;
+    private double precioVenta;
     private String estado;
 
-    public Departamentos(String codigo, int numero, double precio, String estado) {
-        this.codigo = codigo;
-        this.numero = numero;
-        this.precio = precio;
-        this.estado = "DISPONIBLE";
-        
-        
-    }
     
-    //GETTERS
+
+    public Departamento(String codigo, int piso, String numeroDepartamento,
+            double area, int dormitorios, int banos,
+            String tipo, double precioVenta) {
+
+        this.codigo = codigo;
+        this.piso = piso;
+        this.numeroDepartamento = numeroDepartamento;
+        this.area = area;
+        this.dormitorios = dormitorios;
+        this.banos = banos;
+        this.tipo = tipo;
+        this.precioVenta = precioVenta;
+        this.estado = "Disponible";
+
+    }
+
+    //Getters y Setters
 
     public String getCodigo() {
         return codigo;
+
     }
 
-    public int getNumero() {
-        return numero;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+
     }
 
-    public double getPrecio() {
-        return precio;
+    public int getPiso() {
+        return piso;
+
+    }
+
+    public void setPiso(int piso) {
+        this.piso = piso;
+
+    }
+
+    public String getNumeroDepartamento() {
+        return numeroDepartamento;
+
+    }
+
+    public void setNumeroDepartamento(String numeroDepartamento) {
+        this.numeroDepartamento = numeroDepartamento;
+
+    }
+
+    public double getArea() {
+        return area;
+
+    }
+
+    public void setArea(double area) {
+        this.area = area;
+
+    }
+
+    public int getDormitorios() {
+        return dormitorios;
+
+    }
+
+    public void setDormitorios(int dormitorios) {
+        this.dormitorios = dormitorios;
+
+    }
+
+    public int getBanos() {
+        return banos;
+
+    }
+
+    public void setBanos(int banos) {
+        this.banos = banos;
+
+    }
+
+    public String getTipo() {
+        return tipo;
+
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+
+    }
+
+    public double getPrecioVenta() {
+        return precioVenta;
+
+    }
+
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
+
     }
 
     public String getEstado() {
         return estado;
-    }
-    
-    
-    // SETTERS
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
+
+    }
+
+    
+
+    public void reservar(){
+        estado = "Reservado";
+    }
+
+    public void vender(){
+
+        estado = "Vendido";
+
     }
 
     @Override
-    public String toString() {
-        return "Dep. "+ numero +"["+estado +"]-$"+ precio;
-         
+
+    public String toString(){
+        return codigo + " - Piso: " + piso 
+                + " - Estado: " + estado;
     }
+
+}
     
     
     
