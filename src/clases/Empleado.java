@@ -8,7 +8,7 @@ package clases;
  *
  * @author Avril
  */
-public class Empleado {
+public abstract class Empleado {
     
     //Atributos:
     private String dni;
@@ -19,6 +19,7 @@ public class Empleado {
     private String rol; //Administrador , Asesor, Gerente
     
     //Constructor:
+
     public Empleado(String dni, String nombres, String apellidos, String usuario, String contrasena, String rol) {
         this.dni = dni;
         this.nombres = nombres;
@@ -27,6 +28,7 @@ public class Empleado {
         this.contrasena = contrasena;
         this.rol = rol;
     }
+    
     
     //Propiedades (Getters y Setters):
     public String getDni() {
