@@ -4,7 +4,10 @@
  */
 package gestion;
 
+import clases.Administrador;
+import clases.AsesorVentas;
 import clases.Empleado;
+import clases.Gerente;
 
 /**
  *
@@ -21,21 +24,21 @@ public class GestionEmpleado {
         empleados = new Empleado[50];
         totalEmpleados = 0;
         
-        registrarEmpleado(new Empleado("78945312", "Avril Yadhira", "Tinoco Torres", "AV202356", "111111", "Asesor de Ventas"));
-        registrarEmpleado(new Empleado("78945312", "Artemio Gustavo", "Sanchez Quispe", "AV201589", "753159", "Asesor de Ventas"));
-        registrarEmpleado(new Empleado("78945312", "Luz Estrella", "Cespedes Gomez", "AV202178", "951357", "Asesor de Ventas"));
+        registrarEmpleado(new AsesorVentas("78945312", "Avril Yadhira", "Tinoco Torres", "AV202356", "111111", "Asesor de Ventas"));
+        registrarEmpleado(new AsesorVentas("78945312", "Artemio Gustavo", "Sanchez Quispe", "AV201589", "753159", "Asesor de Ventas"));
+        registrarEmpleado(new AsesorVentas("78945312", "Luz Estrella", "Cespedes Gomez", "AV202178", "951357", "Asesor de Ventas"));
         
-        registrarEmpleado(new Empleado("78945312", "Sabina Celia", "Huaman Vazquez", "A0201545", "456739", "Administrador"));
-        registrarEmpleado(new Empleado("78945312", "Diana Nadia", "Perez Rodriguez", "A0202273", "333333", "Administrador"));
-        registrarEmpleado(new Empleado("78945312", "Maria Gracia", "Hernandez Garcia", "A0201094", "741963", "Administrador"));
+        registrarEmpleado(new Administrador ("78945312", "Sabina Celia", "Huaman Vazquez", "A0201545", "456739", "Administrador"));
+        registrarEmpleado(new Administrador("78945312", "Diana Nadia", "Perez Rodriguez", "A0202273", "333333", "Administrador"));
+        registrarEmpleado(new Administrador("78945312", "Maria Gracia", "Hernandez Garcia", "A0201094", "741963", "Administrador"));
         
-        registrarEmpleado(new Empleado("78945312", "Tirza Fabiana", "Portilla Torres", "GE200938", "789102", "Gerente"));
-        registrarEmpleado(new Empleado("78945312", "Grecia Ariadna", "Olviares Gonzales", "GE201889", "963741", "Gerente"));
-        registrarEmpleado(new Empleado("78945312", "Valeria Dominique", "Jimenez Tello", "GE201593", "888888", "Gerente"));
+        registrarEmpleado(new Gerente("78945312", "Tirza Fabiana", "Portilla Torres", "GE200938", "789102", "Gerente"));
+        registrarEmpleado(new Gerente("78945312", "Grecia Ariadna", "Olviares Gonzales", "GE201889", "963741", "Gerente"));
+        registrarEmpleado(new Gerente("78945312", "Valeria Dominique", "Jimenez Tello", "GE201593", "888888", "Gerente"));
         
-        registrarEmpleado(new Empleado("78945312", "Heissy Fatima", "Molina de la Vega", "AV201582", "111111", "Asesor de Ventas"));
-        registrarEmpleado(new Empleado("78945312", "Mariano Guzman", "Almonacid Guerra", "A0200519", "123456", "Administrador"));
-        registrarEmpleado(new Empleado("78945312", "Hector Marcello", "Diaz Tinoco", "GE202378", "222222", "Gerente"));
+        registrarEmpleado(new AsesorVentas("78945312", "Heissy Fatima", "Molina de la Vega", "AV201582", "111111", "Asesor de Ventas"));
+        registrarEmpleado(new Administrador("78945312", "Mariano Guzman", "Almonacid Guerra", "A0200519", "123456", "Administrador"));
+        registrarEmpleado(new Gerente ("78945312", "Hector Marcello", "Diaz Tinoco", "GE202378", "222222", "Gerente"));
     
     }
     
