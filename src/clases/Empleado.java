@@ -78,17 +78,10 @@ public abstract class Empleado {
     public void setRol(String rol) {
         this.rol = rol;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
- 
+    public boolean validarCredenciales(String usuarioIngresado, String claveIngresada) {
+        return usuario.equalsIgnoreCase(usuarioIngresado) && contrasena.equals(claveIngresada);
+    } 
+    public String getInformacion() {
+        return "DNI : " + dni+ "\nNombres : " + nombres+ "\nApellidos : " + apellidos+ "\nUsuario : " + usuario+ "\nRol : " + getRol();
+    }   
 }
