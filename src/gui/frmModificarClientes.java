@@ -6,6 +6,7 @@ package gui;
 
 import clases.Cliente;
 import gestion.GestionCliente;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,7 +19,7 @@ public class frmModificarClientes extends javax.swing.JFrame {
      * Creates new form frmModificarClientes
      */
     private DefaultTableModel modelo;
-    private Cliente gestionCliente;
+    private GestionCliente gestionCliente;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmModificarClientes.class.getName());
     
@@ -42,15 +43,21 @@ public class frmModificarClientes extends javax.swing.JFrame {
         listarClientes();
     }
     
-    void listarEmpleados(){
+    void listarClientes(){
         modelo.setNumRows(0);
-        for (int i = 0; i < gestionEmpleado.obtenerTotalEmpleados(); i++) {
+        for (int i = 0; i < gestionCliente.obtenerTotalClientes(); i++) {
             //crear la fila segun la cantidad de objetos
             Object[] fila ={
-                gestionCliente.obtenerClientes()[i].getDni(),
+                gestionCliente. obtenerClientes()[i].getDni(),
                 gestionCliente.obtenerClientes()[i].getNombres(),
                 gestionCliente.obtenerClientes()[i].getApellidos(),
-                gestionCliente.obtenerClientes()[i].getUsuario();
+                gestionCliente.obtenerClientes()[i].getFechaNacimiento(),
+                gestionCliente.obtenerClientes()[i].getEstadoCivil(),
+                gestionCliente.obtenerClientes()[i].getOcupacion(),
+                gestionCliente.obtenerClientes()[i].getIngresosMensuales(),
+                gestionCliente.obtenerClientes()[i].getTelefono(),
+                gestionCliente.obtenerClientes()[i].getCorreo()
+
             };
             //agregar al modelo 
             modelo.addRow(fila);
@@ -58,11 +65,16 @@ public class frmModificarClientes extends javax.swing.JFrame {
     }
     
     void limpiar(){
-        txtdni.setText("");
-        txtnombres.setText("");
-        txtapellidos.setText("");
-        txtfechanacimiento.setText("");
-        txtestadocivil.requestFocus();
+        txtDni.setText("");
+        txtNombres.setText("");
+        txtApellidos.setText("");
+        txtFechaNacimiento.setText("");
+        txtEstadoCivil.setText("");
+        txtOcupacion.setText("");
+        txtIngresosMensuales.setText("");
+        txtTelefono.setText("");
+        txtCorreo.setText("");
+        txtDni.requestFocus();
     }
 
     /**
@@ -81,9 +93,9 @@ public class frmModificarClientes extends javax.swing.JFrame {
         btnActualizar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         lblDni = new javax.swing.JLabel();
-        txtDni1 = new javax.swing.JTextField();
+        txtDni = new javax.swing.JTextField();
         lblNombres = new javax.swing.JLabel();
-        txtNombres1 = new javax.swing.JTextField();
+        txtNombres = new javax.swing.JTextField();
         lblApellidos = new javax.swing.JLabel();
         txtApellidos = new javax.swing.JTextField();
         lblFechaNacimiento = new javax.swing.JLabel();
@@ -186,16 +198,16 @@ public class frmModificarClientes extends javax.swing.JFrame {
         lblDni.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblDni.setText("DNI:");
 
-        txtDni1.setEditable(false);
-        txtDni1.setBackground(new java.awt.Color(255, 255, 204));
-        txtDni1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtDni.setEditable(false);
+        txtDni.setBackground(new java.awt.Color(255, 255, 204));
+        txtDni.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblNombres.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNombres.setText("Nombres:");
 
-        txtNombres1.setEditable(false);
-        txtNombres1.setBackground(new java.awt.Color(255, 255, 204));
-        txtNombres1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNombres.setEditable(false);
+        txtNombres.setBackground(new java.awt.Color(255, 255, 204));
+        txtNombres.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblApellidos.setText("Apellidos:");
@@ -273,7 +285,7 @@ public class frmModificarClientes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtNombres1))
+                        .addComponent(txtNombres))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -302,7 +314,7 @@ public class frmModificarClientes extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(35, 35, 35)
-                                .addComponent(txtDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(44, 44, 44)
                                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 60, Short.MAX_VALUE)))
@@ -320,7 +332,7 @@ public class frmModificarClientes extends javax.swing.JFrame {
                                 .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblDni)
-                                    .addComponent(txtDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(20, 20, 20))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
@@ -328,7 +340,7 @@ public class frmModificarClientes extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNombres)
-                            .addComponent(txtNombres1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblApellidos)
@@ -369,30 +381,109 @@ public class frmModificarClientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-       
+    // TODO add your handling code here:
+        String dni= txtDni.getText().trim();
+        String nombres= txtNombres.getText().trim();
+        String apellidos= txtApellidos.getText().trim();
+        String fechaNacimiento= txtFechaNacimiento.getText().trim();
+        String estadoCivil= txtEstadoCivil.getText().trim();
+        String ocupacion= txtOcupacion.getText().trim();
+        String telefono= txtTelefono.getText().trim();
+        String correo= txtCorreo.getText().trim();
+        double ingresosMensuales = Double.parseDouble(txtIngresosMensuales.getText().trim());
+        
+        //Instanciamos
+        Cliente cliente = new Cliente(dni, nombres, apellidos, fechaNacimiento, estadoCivil, ocupacion, ingresosMensuales, telefono, correo);
+        
+        if(gestionCliente.actualizar(cliente)){
+            listarClientes();
+            limpiar();
+            JOptionPane.showMessageDialog(this, "Cliente actualizado");
+        }else{
+            JOptionPane.showMessageDialog(this, "No se pudo registrar.");
+        }  
 
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        
+        // TODO add your handling code here:
+        String dni= txtDni.getText().trim();
+        if(gestionCliente.eliminarCliente(dni)){
+            listarClientes();
+            limpiar();
+            JOptionPane.showMessageDialog(this, "Cliente eliminado");
+        }else{
+            JOptionPane.showMessageDialog(this, "No se encontró el Cliente a eliminar");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClienteMouseClicked
         // TODO add your handling code here:
       
     }//GEN-LAST:event_tbClienteMouseClicked
-
+        navegar();
     private void tbClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbClienteKeyReleased
         // TODO add your handling code here:
      
     }//GEN-LAST:event_tbClienteKeyReleased
-
+        navegar();
+        
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-       
+    // TODO add your handling code here:
+        String dni= txtDni.getText().trim();       
+        Cliente objCliente =  gestionCliente.buscarPorDNI(dni);
+        
+        if(objCliente!=null){
+            txtDni.setText(objCliente.getDni());
+            txtNombres.setText(objCliente.getNombres());
+            txtApellidos.setText(objCliente.getApellidos());
+            txtFechaNacimiento.setText(objCliente.getFechaNacimiento());
+            txtEstadoCivil.setText(objCliente.getEstadoCivil());
+            txtOcupacion.setText(objCliente.getOcupacion());
+            txtCorreo.setText(objCliente.getCorreo());
+            txtTelefono.setText(objCliente.getTelefono());
+            txtIngresosMensuales.setText(String.valueOf(objCliente.getIngresosMensuales()));
+        
+        }else{
+            JOptionPane.showMessageDialog(this, "No se encontró el Cliente");
+        }   
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+    void navegar(){
+        int fila = tbCliente.getSelectedRow();
+        txtDni.setText(""+tbCliente.getValueAt(fila, 0));
+        txtNombres.setText(""+tbCliente.getValueAt(fila, 1));
+        txtApellidos.setText(""+tbCliente.getValueAt(fila, 2));
+        txtFechaNacimiento.setText(""+tbCliente.getValueAt(fila, 3));
+        txtEstadoCivil.setText(""+tbCliente.getValueAt(fila, 4));
+        txtOcupacion.setText(""+tbCliente.getValueAt(fila, 5));
+        txtCorreo.setText(""+tbCliente.getValueAt(fila, 6));
+        txtTelefono.setText(""+tbCliente.getValueAt(fila, 7));
+        txtIngresosMensuales.setText(""+tbCliente.getValueAt(fila, 8));
         
+    }
+    
+    
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+        String dni= txtDni.getText().trim();
+        String nombres= txtNombres.getText().trim();
+        String apellidos= txtApellidos.getText().trim();
+        String fechaNacimiento= txtFechaNacimiento.getText().trim();
+        String estadoCivil= txtEstadoCivil.getText().trim();
+        String ocupacion= txtOcupacion.getText().trim();
+        String telefono= txtTelefono.getText().trim();
+        String correo= txtCorreo.getText().trim();
+        double ingresosMensuales = Double.parseDouble(txtIngresosMensuales.getText().trim());
+
+         //Instanciamos
+        Cliente cliente = new Cliente(dni, nombres, apellidos, fechaNacimiento, estadoCivil, ocupacion, correo, telefono, nombres);
+        if(gestionCliente.registrarCliente(cliente)){
+            listarClientes();
+            limpiar();
+        }else{
+            JOptionPane.showMessageDialog(this, "No se pudo registrar.");
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
@@ -449,11 +540,11 @@ public class frmModificarClientes extends javax.swing.JFrame {
     private javax.swing.JTable tbCliente;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtDni1;
+    private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtEstadoCivil;
     private javax.swing.JTextField txtFechaNacimiento;
     private javax.swing.JTextField txtIngresosMensuales;
-    private javax.swing.JTextField txtNombres1;
+    private javax.swing.JTextField txtNombres;
     private javax.swing.JTextField txtOcupacion;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables

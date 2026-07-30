@@ -19,6 +19,9 @@ public class GestionCliente {
     public GestionCliente() {
         clientes = new Cliente[50];
         totalClientes = 0;
+        
+        Cliente cliente = new Cliente("45612378", "Anna Torres", "Tinoco Diaz", "10/04/06", "Soltera", "Oficinista", 150.9, "93861643", "avtinoco300@gmail.com"
+                + "");
     }
     
     //Buscar DNI:
