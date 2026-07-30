@@ -77,11 +77,7 @@ public class Proyecto {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-<<<<<<< HEAD
-
-}
     
-=======
     public int getTotalDepartamentos() {
         return totalDepartamentos;
     }
@@ -143,4 +139,4 @@ public class Proyecto {
         return "Proyecto : " + nombreProyecto+ "\nDireccion : " + direccion+ "\nDistrito : " + distrito+ "\nNumero de Pisos : " + numeroPisos+ "\nInicio de Obra : " + fechaInicioObra+ "\nEntrega Estimada : " + fechaEstimadaEntrega+ "\nEstado : " + estado+ "\nDepartamentos Registrados : " + totalDepartamentos;
     }  
 }
->>>>>>> e1670947cc1ef8e6459de59a1784d9f439bcfbef
+

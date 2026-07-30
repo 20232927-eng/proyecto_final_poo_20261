@@ -16,7 +16,7 @@ public class GestionProyecto {
     public GestionProyecto() {
         proyectos = new Proyecto[30];
         totalProyectos = 0;
-<<<<<<< HEAD
+
         registrarProyecto(new Proyecto("P001","Residencial Los Olivos","Av. Primavera 250","Surco",12,"10/01/2025","20/12/2026","En construcción"));
 
         registrarProyecto(new Proyecto( "P002","Edificio Vista Mar","Av. La Marina 500","San Miguel",15,"15/03/2025","30/11/2027","En planos" ));
@@ -32,12 +32,13 @@ public class GestionProyecto {
 
     public Proyecto buscarPorCodigo(String codigo) {
 
-=======
     }
     //Busca por nombre de proyecto
     public Proyecto buscarPorNombre(String nombreProyecto) {
->>>>>>> e1670947cc1ef8e6459de59a1784d9f439bcfbef
-        for (int i = 0; i < totalProyectos; i++) {
+    }
+    //Busca por nombre de proyecto
+    public Proyecto buscarPorNombre(String nombreProyecto) {
+            for (int i = 0; i < totalProyectos; i++) {
             if (proyectos[i].getNombreProyecto().equalsIgnoreCase(nombreProyecto)) {
                 return proyectos[i];
             }

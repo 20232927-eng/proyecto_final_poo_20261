@@ -3,12 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package gestion;
-
 import clases.Administrador;
 import clases.AsesorVentas;
 import clases.Empleado;
 import clases.Gerente;
-
 /**
  *
  * @author Avril
@@ -21,24 +19,31 @@ public class GestionEmpleado {
     //Constructor:
 
     public GestionEmpleado() {
+    //Atributos:
+    private Empleado[] empleados;
+    private int totalEmpleados;
+    
+    //Constructor:
+
+    public GestionEmpleado() {
         empleados = new Empleado[50];
         totalEmpleados = 0;
         
-        registrarEmpleado(new AsesorVentas("78945312", "Avril Yadhira", "Tinoco Torres", "AV202356", "111111", "Asesor de Ventas"));
-        registrarEmpleado(new AsesorVentas("78945312", "Artemio Gustavo", "Sanchez Quispe", "AV201589", "753159", "Asesor de Ventas"));
-        registrarEmpleado(new AsesorVentas("78945312", "Luz Estrella", "Cespedes Gomez", "AV202178", "951357", "Asesor de Ventas"));
+        registrarEmpleado(new AsesorVentas("78945312", "Avril Yadhira", "Tinoco Torres", "AV202356", "111111", 5000.0));
+        registrarEmpleado(new AsesorVentas("74185296", "Artemio Gustavo", "Sanchez Quispe", "AV201589", "753159", 4500.0));
+        registrarEmpleado(new AsesorVentas("85236974", "Luz Estrella", "Cespedes Gomez", "AV202178", "951357", 4800.0));
         
-        registrarEmpleado(new Administrador ("78945312", "Sabina Celia", "Huaman Vazquez", "A0201545", "456739", "Administrador"));
-        registrarEmpleado(new Administrador("78945312", "Diana Nadia", "Perez Rodriguez", "A0202273", "333333", "Administrador"));
-        registrarEmpleado(new Administrador("78945312", "Maria Gracia", "Hernandez Garcia", "A0201094", "741963", "Administrador"));
+        registrarEmpleado(new Administrador ("96325874", "Sabina Celia", "Huaman Vazquez", "A0201545", "456739"));
+        registrarEmpleado(new Administrador("14785236", "Diana Nadia", "Perez Rodriguez", "A0202273", "333333"));
+        registrarEmpleado(new Administrador("25836914", "Maria Gracia", "Hernandez Garcia", "A0201094", "741963"));
         
-        registrarEmpleado(new Gerente("78945312", "Tirza Fabiana", "Portilla Torres", "GE200938", "789102", "Gerente"));
-        registrarEmpleado(new Gerente("78945312", "Grecia Ariadna", "Olviares Gonzales", "GE201889", "963741", "Gerente"));
-        registrarEmpleado(new Gerente("78945312", "Valeria Dominique", "Jimenez Tello", "GE201593", "888888", "Gerente"));
+        registrarEmpleado(new Gerente("36925814", "Tirza Fabiana", "Portilla Torres", "GE200938", "789102", "Ventas"));
+        registrarEmpleado(new Gerente("47103692", "Grecia Ariadna", "Olviares Gonzales", "GE201889", "963741", "Proyectos"));
+        registrarEmpleado(new Gerente("58147963", "Valeria Dominique", "Jimenez Tello", "GE201593", "888888", "Administracion"));
         
-        registrarEmpleado(new AsesorVentas("78945312", "Heissy Fatima", "Molina de la Vega", "AV201582", "111111", "Asesor de Ventas"));
-        registrarEmpleado(new Administrador("78945312", "Mariano Guzman", "Almonacid Guerra", "A0200519", "123456", "Administrador"));
-        registrarEmpleado(new Gerente ("78945312", "Hector Marcello", "Diaz Tinoco", "GE202378", "222222", "Gerente"));
+        registrarEmpleado(new AsesorVentas("69258147", "Heissy Fatima", "Molina de la Vega", "AV201582", "111111", 5200.0));
+        registrarEmpleado(new Administrador("70369258", "Mariano Guzman", "Almonacid Guerra", "A0200519", "123456"));
+        registrarEmpleado(new Gerente ("81470369", "Hector Marcello", "Diaz Tinoco", "GE202378", "222222", "Reportes"));
     
     }
     
@@ -85,7 +90,6 @@ public class GestionEmpleado {
                 empleados[i].setApellidos(empleado.getApellidos());
                 empleados[i].setUsuario(empleado.getUsuario());
                 empleados[i].setContrasena(empleado.getContrasena());
-                empleados[i].setRol(empleado.getRol());
                 return true;
                 
             }
@@ -99,11 +103,12 @@ public class GestionEmpleado {
     public boolean eliminarEmpleado(String dni) {
         for (int i = 0; i < totalEmpleados; i++) {
             if (empleados[i].getDni().equalsIgnoreCase(dni)) {
-                //Corre los demas elementos una posicion a la izquierda:
-                for (int j = 0; j < totalEmpleados -1; j++) {
+                imprimir("Empleado eliminado con exito:"+empleados[i].getDni());
+                
+                //Corre los demas elementos una posicion a la izquierda (desde la posicion encontrada):
+                for (int j = i; j < totalEmpleados -1; j++) {
                     empleados[j] = empleados [j+1];
                 }
-                imprimir("Empleado eliminado con exito:"+empleados[i].getDni());
                 
                 //Limpia el ultimo casillero:
                 empleados [totalEmpleados - 1]= null;
@@ -126,8 +131,5 @@ public class GestionEmpleado {
     public static void imprimir(String cadena) {
         System.out.println(cadena);
     }
-    //------------------------------------------------------------
-    
-    
-    
+    //------------------------------------------------------------   
 }
